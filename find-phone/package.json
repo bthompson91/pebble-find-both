@@ -1,0 +1,34 @@
+{
+  "author": "Brendan Thompson",
+  "dependencies": {},
+  "keywords": [
+    "pebble-app"
+  ],
+  "name": "find-phone",
+  "pebble": {
+    "displayName": "Find Phone",
+    "enableMultiJS": true,
+    "messageKeys": [
+      "RINGING",
+      "ERROR",
+      "RING"
+    ],
+    "sdkVersion": "3",
+    "targetPlatforms": [
+      "basalt"
+    ],
+    "usesPermissions": [
+      {
+        "name": "FindMyPhone",
+        "reason": "To ring your phone when you ask from your watch",
+        "required": true
+      }
+    ],
+    "uuid": "a37a8568-bf3b-43dd-8752-1411f1e399b0",
+    "watchapp": {
+      "watchface": false
+    }
+  },
+  "private": true,
+  "version": "1.0.0"
+}
