@@ -1,0 +1,42 @@
+name: Build .pbw files
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pebble SDK
+        run: |
+          pip install uv
+          uv tool install pebble-tool --python 3.12
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          pebble sdk install latest
+          chmod -R a+x "$HOME/.local/share/pebble-sdk/SDKs/4.44/toolchain/" || true
+
+      - name: Build Find Phone
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          cd find-phone && pebble build
+
+      - name: Build Find Watch
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          cd find-watch && pebble build
+
+      - name: Upload .pbw files
+        uses: actions/upload-artifact@v4
+        with:
+          name: pebble-find-both-pbw
+          path: |
+            find-phone/build/*.pbw
+            find-watch/build/*.pbw
