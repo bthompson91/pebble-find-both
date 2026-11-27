@@ -1,0 +1,5 @@
+# Build outputs and binaries — rebuilt by CI, not committed
+build/
+*.pbw
+*.png
+.lock-waf_*
