@@ -1,0 +1,24 @@
+{
+  "author": "Brendan Thompson",
+  "dependencies": {},
+  "keywords": [
+    "pebble-app"
+  ],
+  "name": "find-watch",
+  "pebble": {
+    "displayName": "Find Watch",
+    "enableMultiJS": true,
+    "messageKeys": [],
+    "sdkVersion": "3",
+    "targetPlatforms": [
+      "basalt"
+    ],
+    "uuid": "cf732e6f-2870-456b-83d0-fd9fc5a2787c",
+    "watchapp": {
+      "hiddenApp": true,
+      "watchface": false
+    }
+  },
+  "private": true,
+  "version": "1.0.0"
+}
